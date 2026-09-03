@@ -53,7 +53,28 @@ class MainWindow(QMainWindow):
         self.pages.setCurrentWidget(self.page_size)
 
     def _on_plan(self, plan) -> None:
-        self.page_preview.set_plan(plan)
+        solver = None
+        inventory = None
+        if plan.spec.use_inventory:
+            from legoart import api
+            from legoart.inventory import solve_inventory
+
+            from .store import InventoryStore
+
+            inventory = InventoryStore()
+            stock = inventory.snapshot()  # 全量（目录在主内存 curated，用户库 catalog 表未灌）
+            cat = api.load_catalog()
+            pal = api.build_palette(cat)
+            solver = solve_inventory(
+                plan.placements,
+                stock,
+                strategy=plan.spec.shortage_strategy,
+                catalog=cat,
+                palette=pal,
+            )
+            if not solver.placements and not solver.missing:
+                solver.warnings.append("库存为空，无法拼搭（请先入库或改用理想模式）")
+        self.page_preview.set_plan(plan, inventory=inventory, solver=solver)
         self.pages.setCurrentWidget(self.page_preview)
 
     def _on_generate_failed(self, msg: str) -> None:

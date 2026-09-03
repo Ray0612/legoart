@@ -89,6 +89,7 @@ def connect(path: str | Path) -> sqlite3.Connection:
     except sqlite3.Error as e:
         raise StorageError(f"无法打开数据库 {p}: {e}")
     conn.row_factory = sqlite3.Row
+    conn.isolation_level = None  # 自动提交；显式 BEGIN/COMMIT 管理多语句事务
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 

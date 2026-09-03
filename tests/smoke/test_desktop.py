@@ -152,3 +152,75 @@ def test_main_window_end_to_end(qapp, tmp_path):
     assert win.pages.currentWidget() is win.page_preview
     assert win.page_preview.combo_layer.count() >= 1
     win.close()
+
+
+def test_inventory_dialog_list(qapp, tmp_path):
+    from legoart_desktop.pages.page_inventory import InventoryDialog
+    from legoart_desktop.store import InventoryStore
+
+    store = InventoryStore(tmp_path / "inv.db")
+    store.add([("3024", "Red", 20), ("3020", "Blue", 4)])
+    dlg = InventoryDialog(store)
+    assert dlg.table.rowCount() == 2
+
+    # 显式选中 3024 + Red，累加 5 → 同 key 合并
+    for i in range(dlg.combo_part.count()):
+        if dlg.combo_part.itemData(i) == "3024":
+            dlg.combo_part.setCurrentIndex(i)
+            break
+    for i in range(dlg.combo_color.count()):
+        if dlg.combo_color.itemData(i) == "Red":
+            dlg.combo_color.setCurrentIndex(i)
+            break
+    dlg.spin_qty.setValue(5)
+    dlg._on_add()
+    assert dlg.table.rowCount() == 2
+    assert store.snapshot() == {("3024", "Red"): 25, ("3020", "Blue"): 4}
+
+
+def test_inventory_mode_solve_and_deduct(qapp, tmp_path, monkeypatch):
+    from collections import Counter
+
+    from legoart_desktop.store import InventoryStore
+
+    db = tmp_path / "u.db"
+    monkeypatch.setenv("LEGOART_DB", str(db))
+
+    # 1) 纯色图 → 确定性方案
+    im = Image.new("RGB", (24, 24), (150, 40, 40))
+    page = SizePage()
+    page.set_image_pil(im)
+    page.spin_w.setValue(8)
+    page.chk_inv.setChecked(True)
+    page.combo_strategy.setCurrentIndex(0)  # 近似替代
+    plan = page.run_sync()
+    assert plan.spec.use_inventory is True
+
+    # 2) 按方案需求备货（精确件）
+    store = InventoryStore()
+    counts = Counter((p.design_id, p.color_id) for p in plan.placements)
+    store.add([(d, c, q) for (d, c), q in counts.items()])
+    assert store.snapshot()
+
+    # 3) 主窗口装配求解
+    win = MainWindow()
+    win._on_plan(plan)
+    assert win.pages.currentWidget() is win.page_preview
+    preview = win.page_preview
+    assert preview._solver is not None
+    assert len(preview._solver.missing) == 0
+    assert preview._solver.allocations
+    assert not preview.btn_deduct.isHidden()  # 未 show 的窗口 isVisible 恒 False
+    assert "可拼" in preview.solver_label.text()
+
+    # 4) 确认拼搭 → 扣减 + 历史
+    preview._on_deduct()
+    assert all(r["quantity"] == 0 for r in store.list())
+    import sqlite3
+
+    conn = sqlite3.connect(db)
+    n = conn.execute("SELECT COUNT(*) FROM project_history").fetchone()[0]
+    conn.close()
+    assert n == 1
+    assert preview.btn_deduct.isHidden()
+    win.close()

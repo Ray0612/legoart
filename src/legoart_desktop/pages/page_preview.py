@@ -28,6 +28,9 @@ class PreviewPage(QWidget):
         super().__init__(parent)
         self._plan: MosaicPlan | None = None
         self._palette = None
+        self._inventory = None
+        self._solver = None
+        self._deducted = False
 
         lay = QVBoxLayout(self)
         top = QHBoxLayout()
@@ -52,9 +55,22 @@ class PreviewPage(QWidget):
         self.summary.setWordWrap(True)
         lay.addWidget(self.summary)
 
+        # 库存约束求解结果（M4）
+        self.solver_label = QLabel("")
+        self.solver_label.setWordWrap(True)
+        self.solver_label.setVisible(False)
+        lay.addWidget(self.solver_label)
+
+        self.btn_deduct = QPushButton("确认开始拼搭 → 扣减库存并记录历史")
+        self.btn_deduct.setVisible(False)
+        self.btn_deduct.clicked.connect(self._on_deduct)
+        lay.addWidget(self.btn_deduct)
+
     # ---- 公共 API ----
-    def set_plan(self, plan: MosaicPlan) -> None:
+    def set_plan(self, plan: MosaicPlan, *, inventory=None, solver=None) -> None:
         self._plan = plan
+        self._inventory = inventory  # InventoryStore（仅库存模式）
+        self._solver = solver        # SolverResult（仅库存模式）
         self._palette = api.build_palette()
         self.combo_layer.blockSignals(True)
         self.combo_layer.clear()
@@ -65,6 +81,7 @@ class PreviewPage(QWidget):
         self.btn_save.setEnabled(True)
         self._refresh_view()
         self._refresh_summary()
+        self._refresh_solver()
 
     def current_plan(self) -> MosaicPlan | None:
         return self._plan
@@ -104,6 +121,53 @@ class PreviewPage(QWidget):
         if plan.warnings:
             text += "\n提示：" + "；".join(plan.warnings[:2])
         self.summary.setText(text)
+
+    def _refresh_solver(self) -> None:
+        solver = self._solver
+        inventory = self._inventory
+        if solver is None:
+            self.solver_label.setVisible(False)
+            self.btn_deduct.setVisible(False)
+            return
+        lines = []
+        alloc = solver.allocations
+        placed = sum(a[2] for a in alloc)
+        lines.append(f"库存可拼 {len(solver.placements)} 片（共 {placed} 件扣减）")
+        if solver.substituted:
+            lines.append(
+                f"替代 {len(solver.substituted)} 处（如 2×1x2 → 1x4、近似色），"
+                "详见 Excel 缺件/替代明细（M5）"
+            )
+        if solver.missing:
+            top = solver.missing[:6]
+            lines.append(
+                "缺件：" + "，".join(f"{m.design_id} {m.color_id} ×{m.qty}" for m in top)
+                + ("…" if len(solver.missing) > 6 else "")
+            )
+        if solver.warnings:
+            lines.append("提示：" + "；".join(solver.warnings[:2]))
+        self.solver_label.setText("\n".join(lines))
+        self.solver_label.setVisible(True)
+        show_deduct = bool(
+            inventory is not None and alloc and not self._deducted
+        )
+        self.btn_deduct.setVisible(show_deduct)
+        if self._deducted:
+            self.solver_label.setText(self.solver_label.text() + "\n（已完成扣减并记录历史）")
+
+    def _on_deduct(self) -> None:
+        if self._plan is None or self._inventory is None or self._solver is None or self._deducted:
+            return
+        try:
+            hid = self._inventory.deduct_and_record(self._solver.allocations, plan=self._plan)
+        except Exception as e:
+            from PyQt6.QtWidgets import QMessageBox
+
+            QMessageBox.warning(self, "扣减失败", str(e))
+            return
+        self._deducted = True
+        self.solver_label.setText(self.solver_label.text() + f"\n✓ 已扣减并记录历史（#{hid}）")
+        self.btn_deduct.setVisible(False)
 
     def _choose_save(self) -> None:
         if self._plan is None:

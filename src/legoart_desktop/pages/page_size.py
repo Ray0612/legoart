@@ -75,7 +75,24 @@ class SizePage(QWidget):
         self.chk_saliency.setChecked(True)
         form.addRow("凸起", self.chk_saliency)
 
-        self.lbl_inv = QLabel("模式：理想购物车（库存约束在 M4 接入）")
+        # ---- 库存约束（D7/D13）----
+        self.chk_inv = QCheckBox("库存约束模式（使用我的库存）")
+        self.chk_inv.toggled.connect(self._inv_toggled)
+        form.addRow("模式", self.chk_inv)
+
+        self.combo_strategy = QComboBox()
+        self.combo_strategy.addItem("近似替代（牺牲精度）", "approximate")
+        self.combo_strategy.addItem("生成缺件清单（保留原色）", "missing_list")
+        self.combo_strategy.addItem("极限拼搭（只用库存，缺处留空）", "extreme")
+        self.combo_strategy.setEnabled(False)
+        form.addRow("缺货策略", self.combo_strategy)
+
+        self.btn_inventory = QPushButton("管理我的库存…")
+        self.btn_inventory.setEnabled(False)
+        self.btn_inventory.clicked.connect(self._open_inventory)
+        form.addRow("", self.btn_inventory)
+
+        self.lbl_inv = QLabel("理想购物车模式：输出需购买零件清单（不涉及扣减）")
         form.addRow("", self.lbl_inv)
         lay.addLayout(form)
 
@@ -110,16 +127,35 @@ class SizePage(QWidget):
         w = float(self.spin_w.value())
         if unit == "cm":
             w = max(1.0, round(w / 0.8))
+        from legoart.model.image_spec import ShortageStrategy
+
         return ImageSpec(
             grid_w=int(round(w)),
             grid_h=0,  # pipeline 按图片比例自动
             style=StyleKind.COLOR_BLOCK,
-            use_inventory=False,
+            use_inventory=self.chk_inv.isChecked(),
+            shortage_strategy=ShortageStrategy(self.combo_strategy.currentData()),
             color_set=self.combo_color.currentData(),
             saliency_enabled=self.chk_saliency.isChecked(),
             input_unit=unit,
             catalog_version=api.load_catalog().version,
         )
+
+    def _inv_toggled(self, on: bool) -> None:
+        self.combo_strategy.setEnabled(on)
+        self.btn_inventory.setEnabled(on)
+        self.lbl_inv.setText(
+            "库存约束模式：先耗库存，缺货按所选策略处理；确认拼搭后自动扣减"
+            if on
+            else "理想购物车模式：输出需购买零件清单（不涉及扣减）"
+        )
+
+    def _open_inventory(self) -> None:
+        from .page_inventory import InventoryDialog
+        from ..store import InventoryStore
+
+        dlg = InventoryDialog(InventoryStore(), self)
+        dlg.exec()
 
     def run_sync(self) -> object:
         """同步生成（测试/自动化）：直接返回 MosaicPlan。"""

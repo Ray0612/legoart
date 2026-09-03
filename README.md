@@ -36,8 +36,6 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M3 完成 —— PyQt6 桌面壳三页向导（导入+鼠标框选裁剪 → 尺寸/单位/色集/
-> 显著性参数+后台线程生成 → 分层预览+统计+保存方案 JSON）。离屏测试覆盖裁剪数学、
-> 页面流程、worker 线程、主窗口端到端。共 98 项测试全绿。
->
-> 启动：`.venv\Scripts\python -m legoart_desktop`（需真实显示器）。
+> 状态：M4 完成 —— 库存系统：SQLite DAO（原子增/减/扣减+历史快照）、Excel 导入导出、
+> 库存约束三策略求解（精确 / 同形近似色 / 可铺缩拆分替代，CIEDE2000 最近色），
+> 桌面库存管理对话框 + 库存模式向导 + “确认拼搭→扣减并记录历史”。119 项测试全绿。
