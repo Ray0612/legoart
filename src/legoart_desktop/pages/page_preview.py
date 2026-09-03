@@ -36,11 +36,19 @@ class PreviewPage(QWidget):
         top = QHBoxLayout()
         self.btn_back = QPushButton("← 重新生成")
         self.btn_back.clicked.connect(self.back.emit)
+        self.btn_xlsx = QPushButton("导出 Excel BOM…")
+        self.btn_xlsx.setEnabled(False)
+        self.btn_xlsx.clicked.connect(self._choose_excel)
+        self.btn_pdf = QPushButton("导出 PDF 说明书…")
+        self.btn_pdf.setEnabled(False)
+        self.btn_pdf.clicked.connect(self._choose_pdf)
         self.btn_save = QPushButton("保存方案 JSON…")
         self.btn_save.setEnabled(False)
         self.btn_save.clicked.connect(self._choose_save)
         top.addWidget(self.btn_back)
         top.addStretch(1)
+        top.addWidget(self.btn_xlsx)
+        top.addWidget(self.btn_pdf)
         top.addWidget(self.btn_save)
         lay.addLayout(top)
 
@@ -79,6 +87,8 @@ class PreviewPage(QWidget):
             self.combo_layer.addItem(f"物理层 {layer.level}", layer.level)
         self.combo_layer.blockSignals(False)
         self.btn_save.setEnabled(True)
+        self.btn_xlsx.setEnabled(True)
+        self.btn_pdf.setEnabled(True)
         self._refresh_view()
         self._refresh_summary()
         self._refresh_solver()
@@ -95,6 +105,32 @@ class PreviewPage(QWidget):
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(
             json.dumps(self._plan.to_dict(), ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
+    def export_excel(self, path: str | Path) -> None:
+        from legoart import api
+
+        if self._plan is None:
+            return
+        api.export_plan(
+            self._plan,
+            excel_path=str(path),
+            solver=self._solver,
+            catalog=api.load_catalog(),
+            palette=self._palette,
+        )
+
+    def export_pdf(self, path: str | Path) -> None:
+        from legoart import api
+
+        if self._plan is None:
+            return
+        api.export_plan(
+            self._plan,
+            pdf_path=str(path),
+            solver=self._solver,
+            catalog=api.load_catalog(),
+            palette=self._palette,
         )
 
     # ---- 内部 ----
@@ -177,3 +213,27 @@ class PreviewPage(QWidget):
         )
         if path:
             self.save_plan(path)
+
+    def _choose_excel(self) -> None:
+        path, _ = QFileDialog.getSaveFileName(
+            self, "导出 Excel BOM", "bom.xlsx", "Excel (*.xlsx)"
+        )
+        if path:
+            try:
+                self.export_excel(path)
+            except Exception as e:
+                from PyQt6.QtWidgets import QMessageBox
+
+                QMessageBox.warning(self, "导出失败", str(e))
+
+    def _choose_pdf(self) -> None:
+        path, _ = QFileDialog.getSaveFileName(
+            self, "导出 PDF 说明书", "instructions.pdf", "PDF (*.pdf)"
+        )
+        if path:
+            try:
+                self.export_pdf(path)
+            except Exception as e:
+                from PyQt6.QtWidgets import QMessageBox
+
+                QMessageBox.warning(self, "导出失败", str(e))

@@ -33,7 +33,7 @@ _BIG = 400.0  # 未知颜色的距离哨兵
 class SolverResult:
     placements: list[PartPlacement] = field(default_factory=list)
     missing: list[BomItem] = field(default_factory=list)
-    substituted: list[tuple[PartPlacement, str, int]] = field(default_factory=list)  # (原需求, 替换件design_id, 件数k)
+    substituted: list[tuple[PartPlacement, str, int, str]] = field(default_factory=list)  # (原需求, 替换design, 件数k, 替换color)
     allocations: list[tuple[str, str, int]] = field(default_factory=list)  # (design,color,qty) 扣减用
     warnings: list[str] = field(default_factory=list)
 
@@ -150,8 +150,7 @@ def solve_inventory(
                     result.placements.append(
                         PartPlacement(d, c, orig.layer, orig.x, orig.y, orig.w, orig.h)
                     )
-                    result.substituted.append((orig, d, 1))
-                    result.allocations.append((d, c, 1))
+                    result.substituted.append((orig, d, 1, c))
                     placed = True
                     break
         # L3/L4: 可铺缩的板件（先同色后最近色）
@@ -174,8 +173,7 @@ def solve_inventory(
                 if book.avail(d, c) >= k:
                     book.take(d, c, k)
                     result.placements.extend(_sub_placements(orig, d, c, ow, oh, k))
-                    result.substituted.append((orig, d, k))
-                    result.allocations.append((d, c, k))
+                    result.substituted.append((orig, d, k, c))
                     placed = True
                     break
         if not placed:

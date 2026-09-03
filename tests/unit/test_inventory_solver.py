@@ -41,7 +41,7 @@ def test_approx_same_shape_other_color(ctx):
     assert p.design_id == "3020" and p.color_id == "Blue"
     assert r.missing == []
     assert r.allocations == [("3020", "Blue", 1)]
-    assert r.substituted and r.substituted[0][1] == "3020"
+    assert r.substituted and r.substituted[0][1] == "3020" and r.substituted[0][3] == "Blue"
 
 
 def test_approx_picks_nearest_color(ctx):

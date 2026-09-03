@@ -36,6 +36,6 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M4 完成 —— 库存系统：SQLite DAO（原子增/减/扣减+历史快照）、Excel 导入导出、
-> 库存约束三策略求解（精确 / 同形近似色 / 可铺缩拆分替代，CIEDE2000 最近色），
-> 桌面库存管理对话框 + 库存模式向导 + “确认拼搭→扣减并记录历史”。119 项测试全绿。
+> 状态：M5 完成 —— 导出：Excel BOM（颜色/RGB 色块/逐层用量/总用量 + 缺件/替代明细），
+> PDF 分层说明书（封面预览 + 物料清单 + 每层 6 视角矢量图 + 中文嵌入字体）；
+> api.export_plan / CLI --excel/--pdf / 预览页导出按钮。132 项测试全绿。

@@ -1,1 +1,6 @@
-"""导出（Excel BOM / PDF 分层 6 视图）——M5 实现。"""
+"""导出：Excel BOM / PDF 说明书。"""
+
+from .excel import build_bom_xlsx
+from .pdf import build_pdf
+
+__all__ = ["build_bom_xlsx", "build_pdf"]

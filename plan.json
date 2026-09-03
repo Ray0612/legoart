@@ -1,0 +1,250 @@
+{
+  "spec": {
+    "grid_w": 12,
+    "grid_h": 0,
+    "style": "color_block",
+    "use_inventory": false,
+    "shortage_strategy": "missing_list",
+    "saliency_enabled": false,
+    "color_set": "recommended",
+    "input_unit": "studs",
+    "catalog_version": "",
+    "params_extra": {}
+  },
+  "grid": {
+    "w": 12,
+    "h": 6,
+    "colors": [
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ],
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ],
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ],
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ],
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ],
+      [
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue",
+        "Blue"
+      ]
+    ]
+  },
+  "regions": [],
+  "stack": [
+    {
+      "level": 0,
+      "colors": [
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ],
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ],
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ],
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ],
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ],
+        [
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue",
+          "Blue"
+        ]
+      ]
+    }
+  ],
+  "placements": [
+    {
+      "design_id": "3035",
+      "color_id": "Blue",
+      "layer": 0,
+      "x": 0,
+      "y": 0,
+      "w": 8,
+      "h": 4
+    },
+    {
+      "design_id": "3032",
+      "color_id": "Blue",
+      "layer": 0,
+      "x": 8,
+      "y": 0,
+      "w": 4,
+      "h": 6
+    },
+    {
+      "design_id": "3034",
+      "color_id": "Blue",
+      "layer": 0,
+      "x": 0,
+      "y": 4,
+      "w": 8,
+      "h": 2
+    }
+  ],
+  "bom": [
+    {
+      "design_id": "3032",
+      "color_id": "Blue",
+      "qty": 1,
+      "layer": 0
+    },
+    {
+      "design_id": "3034",
+      "color_id": "Blue",
+      "qty": 1,
+      "layer": 0
+    },
+    {
+      "design_id": "3035",
+      "color_id": "Blue",
+      "qty": 1,
+      "layer": 0
+    }
+  ],
+  "warnings": [
+    "CIEDE2000 residual high (mean 4.99, p95 4.99); consider a larger grid or another palette set"
+  ],
+  "elapsed_ms": 0,
+  "generated_at": "2026-09-03T05:34:01.672051+00:00"
+}

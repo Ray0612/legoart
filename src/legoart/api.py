@@ -54,3 +54,27 @@ def generate_plan(
         regions=regions,
         progress=progress,
     )
+
+
+def export_plan(
+    plan: MosaicPlan,
+    *,
+    excel_path: str | None = None,
+    pdf_path: str | None = None,
+    solver=None,
+    catalog: Catalog | None = None,
+    palette: Palette | None = None,
+) -> dict[str, str]:
+    """导出 Excel / PDF（至少给一个路径）。返回实际写入的文件路径。"""
+    from .export import build_bom_xlsx, build_pdf
+
+    cat = catalog or load_catalog()
+    pal = palette or build_palette(cat)
+    out: dict[str, str] = {}
+    if excel_path:
+        out["excel"] = str(build_bom_xlsx(excel_path, plan, pal, cat, solver=solver))
+    if pdf_path:
+        out["pdf"] = str(build_pdf(pdf_path, plan, pal, cat, solver=solver))
+    if not out:
+        raise ValueError("excel_path 与 pdf_path 至少给一个")
+    return out

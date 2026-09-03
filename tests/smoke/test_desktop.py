@@ -110,6 +110,25 @@ def test_preview_page_and_save(qapp, tmp_path):
     qapp.processEvents()
 
 
+def test_preview_exports(qapp, tmp_path):
+    from openpyxl import load_workbook
+
+    page_size = SizePage()
+    page_size.set_image_pil(Image.new("RGB", (64, 48), (120, 40, 160)))
+    page_size.spin_w.setValue(16)
+    preview = PreviewPage()
+    preview.set_plan(page_size.run_sync())
+
+    xlsx = tmp_path / "b.xlsx"
+    preview.export_excel(xlsx)
+    assert xlsx.exists()
+    assert {"物料清单", "方案参数"} <= set(load_workbook(xlsx).sheetnames)
+
+    pdf = tmp_path / "d.pdf"
+    preview.export_pdf(pdf)
+    assert pdf.read_bytes()[:5] == b"%PDF-"
+
+
 def test_worker_thread(qapp, tmp_path):
     from PyQt6.QtCore import QCoreApplication, QEvent
 

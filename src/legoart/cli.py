@@ -63,7 +63,8 @@ def _cmd_generate(args) -> int:
     )
 
     plan = api.generate_plan(args.image, spec)
-    pal = api.build_palette()
+    cat = api.load_catalog()
+    pal = api.build_palette(cat)
 
     stack = plan.stack
     pieces = len(plan.placements)
@@ -93,6 +94,13 @@ def _cmd_generate(args) -> int:
         prev = Path(args.preview)
         _render_preview(plan.grid, pal, prev)
         print(f"preview -> {prev}")
+
+    if args.excel or args.pdf:
+        wrote = api.export_plan(
+            plan, excel_path=args.excel, pdf_path=args.pdf, catalog=cat, palette=pal
+        )
+        for kind, p in wrote.items():
+            print(f"{kind} -> {p}")
     return 0
 
 
@@ -113,6 +121,8 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument("--no-saliency", action="store_true", help="关闭显著性凸起（跳过重点识别）")
     g.add_argument("--out", default=None, help="方案 JSON 输出路径（默认 ./plan.json）")
     g.add_argument("--preview", default=None, help="可选：输出网格预览 PNG 路径")
+    g.add_argument("--excel", default=None, help="可选：导出 Excel 物料清单路径")
+    g.add_argument("--pdf", default=None, help="可选：导出 PDF 分层说明书路径")
     g.set_defaults(func=_cmd_generate)
     return p
 
