@@ -1,6 +1,6 @@
 """Core Facade —— UI（桌面/Web）唯一允许调用的高层 API（技术方案 §2 分层规则）。
 
-M0 提供目录/调色板装配；生成链路（generate_plan）随 M1 pipeline 落地。
+M0：目录/调色板装配；M1：端到端方案生成（generate_plan）。
 """
 
 from __future__ import annotations
@@ -11,7 +11,7 @@ from pathlib import Path
 from .catalog import Catalog
 from .catalog.loader import default_catalog_dir
 from .color import Palette
-from .errors import NotSupportedError
+from .model import ImageSpec, MosaicPlan
 
 
 @lru_cache(maxsize=4)
@@ -30,6 +30,17 @@ def build_palette(catalog: Catalog | None = None) -> Palette:
     return Palette(cat.colors)
 
 
-def generate_plan(*args, **kwargs):
-    """M1 起提供：端到端方案生成。"""
-    raise NotSupportedError("generate_plan 将在 M1 里程碑实现")
+def generate_plan(
+    image,
+    spec: ImageSpec,
+    *,
+    progress=None,
+    catalog: Catalog | None = None,
+    palette: Palette | None = None,
+) -> MosaicPlan:
+    """端到端生成方案。默认使用内置目录/调色板；可注入覆盖（测试/服务端）。"""
+    from . import pipeline
+
+    cat = catalog or load_catalog()
+    pal = palette or build_palette(cat)
+    return pipeline.generate_plan(image, spec, palette=pal, catalog=cat, progress=progress)

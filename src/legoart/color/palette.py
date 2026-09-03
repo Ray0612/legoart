@@ -82,6 +82,11 @@ class Palette:
         return tuple(i for i in self._ids if self._records[i].recommended)
 
     # ---- 最近色匹配 ----
+    def rgb_of(self, color_id: str) -> tuple[int, int, int] | None:
+        """按 color_id 查 RGB（预览/BOM 用），未知返回 None。"""
+        r = self._records.get(color_id)
+        return r.rgb if r else None
+
     def nearest(
         self,
         query_rgb: np.ndarray,

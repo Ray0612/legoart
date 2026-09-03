@@ -36,5 +36,5 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M0 脚手架完成（核心包骨架 + sRGB/Lab 转换 + CIEDE2000 + 调色板 + 精选目录装载
-> + SQLite schema + 45 项测试全绿）。
+> 状态：M1 色块化链路完成 —— 采样→CIEDE2000 量化→单层网格/BOM JSON + CLI
+> （`python -m legoart.cli generate --image x.png --width 48`），67 项测试全绿。
