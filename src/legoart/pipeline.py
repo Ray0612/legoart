@@ -107,10 +107,12 @@ def generate_plan(
     if spec.style != StyleKind.COLOR_BLOCK:
         raise NotSupportedError("纹理保留风格将在第二迭代实现")
 
-    if isinstance(image, (str, Path, bytes)):
+    if isinstance(image, (str, Path)):
         im = load_rgb_image(image)
     elif isinstance(image, Image.Image):
         im = image.convert("RGB")
+    elif hasattr(image, "read"):  # 文件对象 / BytesIO（GUI 线程内图片传递）
+        im = load_rgb_image(image)
     else:
         raise DataError(f"不支持的图片输入类型: {type(image).__name__}")
 

@@ -36,6 +36,8 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M2 完成 —— 同色大板合并（贪心 run 扩展，96×64 合并 39ms）、显著性凸起
-> （内置对比度显著性 + U²-Net TorchScript 适配器，可注入 regions）、凸起分层与按层 BOM。
-> CLI 全链路 96×64+凸起 ~0.2s（远低于 60s 预算），91 项测试全绿。
+> 状态：M3 完成 —— PyQt6 桌面壳三页向导（导入+鼠标框选裁剪 → 尺寸/单位/色集/
+> 显著性参数+后台线程生成 → 分层预览+统计+保存方案 JSON）。离屏测试覆盖裁剪数学、
+> 页面流程、worker 线程、主窗口端到端。共 98 项测试全绿。
+>
+> 启动：`.venv\Scripts\python -m legoart_desktop`（需真实显示器）。
