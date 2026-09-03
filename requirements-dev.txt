@@ -1,0 +1,4 @@
+# Desktop UI + development dependencies
+-r requirements.txt
+PyQt6>=6.7
+pytest>=8

@@ -1,0 +1,37 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- IDE / OS ---
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+.DS_Store
+
+# --- Local temp (sandbox workaround for TMP/TEMP redirection) ---
+.tmp/
+.devtmp/
+.bootstrap/
+
+# --- Runtime data (never commit) ---
+data/models/**/*.pt
+data/models/**/*.onnx
+data/models/**/*.pth
+data/importers/
+userdata.db
+*.db-shm
+*.db-wal
+exports/
+logs/
+
+# --- Packaging ---
+*.spec

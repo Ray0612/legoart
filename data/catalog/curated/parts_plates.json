@@ -1,0 +1,18 @@
+[
+  {"design_id": "3024", "name": "Plate 1 x 1", "category": "Plate", "stud_w": 1, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3023", "name": "Plate 1 x 2", "category": "Plate", "stud_w": 2, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3623", "name": "Plate 1 x 3", "category": "Plate", "stud_w": 3, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3710", "name": "Plate 1 x 4", "category": "Plate", "stud_w": 4, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3666", "name": "Plate 1 x 6", "category": "Plate", "stud_w": 6, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3460", "name": "Plate 1 x 8", "category": "Plate", "stud_w": 8, "stud_h": 1, "shape_family": "plate", "extra": {}},
+  {"design_id": "3022", "name": "Plate 2 x 2", "category": "Plate", "stud_w": 2, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3021", "name": "Plate 2 x 3", "category": "Plate", "stud_w": 3, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3020", "name": "Plate 2 x 4", "category": "Plate", "stud_w": 4, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3795", "name": "Plate 2 x 6", "category": "Plate", "stud_w": 6, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3034", "name": "Plate 2 x 8", "category": "Plate", "stud_w": 8, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3832", "name": "Plate 2 x 10", "category": "Plate", "stud_w": 10, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "2445", "name": "Plate 2 x 12", "category": "Plate", "stud_w": 12, "stud_h": 2, "shape_family": "plate", "extra": {}},
+  {"design_id": "3031", "name": "Plate 4 x 4", "category": "Plate", "stud_w": 4, "stud_h": 4, "shape_family": "plate", "extra": {}},
+  {"design_id": "3032", "name": "Plate 4 x 6", "category": "Plate", "stud_w": 6, "stud_h": 4, "shape_family": "plate", "extra": {}},
+  {"design_id": "3035", "name": "Plate 4 x 8", "category": "Plate", "stud_w": 8, "stud_h": 4, "shape_family": "plate", "extra": {}}
+]

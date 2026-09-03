@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "legoart"
+version = "0.1.0"
+description = "LEGO Art Converter - convert pictures into LEGO mosaic building plans (core algorithm library)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.0",
+    "Pillow>=11",
+    "opencv-python>=4.10",
+    "openpyxl>=3.1",
+    "reportlab>=4.2",
+]
+
+[project.optional-dependencies]
+desktop = ["PyQt6>=6.7"]
+# torch is intentionally NOT declared here (heavy). Enable saliency/detection by:
+#   pip install -e ".[ml]"   -> installs torch + torchvision (choose CPU wheel on Windows)
+ml = ["torch>=2.2", "torchvision>=0.17"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

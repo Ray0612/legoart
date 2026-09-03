@@ -1,0 +1,23 @@
+[
+  {"design_id": "3005", "name": "Brick 1 x 1", "category": "Brick", "stud_w": 1, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3004", "name": "Brick 1 x 2", "category": "Brick", "stud_w": 2, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3622", "name": "Brick 1 x 3", "category": "Brick", "stud_w": 3, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3010", "name": "Brick 1 x 4", "category": "Brick", "stud_w": 4, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3009", "name": "Brick 1 x 6", "category": "Brick", "stud_w": 6, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3008", "name": "Brick 1 x 8", "category": "Brick", "stud_w": 8, "stud_h": 1, "shape_family": "brick", "extra": {}},
+  {"design_id": "3003", "name": "Brick 2 x 2", "category": "Brick", "stud_w": 2, "stud_h": 2, "shape_family": "brick", "extra": {}},
+  {"design_id": "3002", "name": "Brick 2 x 3", "category": "Brick", "stud_w": 3, "stud_h": 2, "shape_family": "brick", "extra": {}},
+  {"design_id": "3001", "name": "Brick 2 x 4", "category": "Brick", "stud_w": 4, "stud_h": 2, "shape_family": "brick", "extra": {}},
+  {"design_id": "2456", "name": "Brick 2 x 6", "category": "Brick", "stud_w": 6, "stud_h": 2, "shape_family": "brick", "extra": {}},
+  {"design_id": "3007", "name": "Brick 2 x 8", "category": "Brick", "stud_w": 8, "stud_h": 2, "shape_family": "brick", "extra": {}},
+  {"design_id": "3070b", "name": "Tile 1 x 1", "category": "Tile", "stud_w": 1, "stud_h": 1, "shape_family": "tile", "extra": {}},
+  {"design_id": "3069b", "name": "Tile 1 x 2", "category": "Tile", "stud_w": 2, "stud_h": 1, "shape_family": "tile", "extra": {}},
+  {"design_id": "3068b", "name": "Tile 2 x 2", "category": "Tile", "stud_w": 2, "stud_h": 2, "shape_family": "tile", "extra": {}},
+  {"design_id": "2431", "name": "Tile 1 x 4", "category": "Tile", "stud_w": 4, "stud_h": 1, "shape_family": "tile", "extra": {}},
+  {"design_id": "87079", "name": "Tile 2 x 4", "category": "Tile", "stud_w": 4, "stud_h": 2, "shape_family": "tile", "extra": {}},
+  {"design_id": "6636", "name": "Tile 1 x 6", "category": "Tile", "stud_w": 6, "stud_h": 1, "shape_family": "tile", "extra": {}},
+  {"design_id": "4162", "name": "Tile 1 x 8", "category": "Tile", "stud_w": 8, "stud_h": 1, "shape_family": "tile", "extra": {}},
+  {"design_id": "3040", "name": "Slope 45 2 x 1", "category": "Slope", "stud_w": 2, "stud_h": 1, "shape_family": "slope", "extra": {}},
+  {"design_id": "3039", "name": "Slope 45 2 x 2", "category": "Slope", "stud_w": 2, "stud_h": 2, "shape_family": "slope", "extra": {}},
+  {"design_id": "3037", "name": "Slope 45 2 x 4", "category": "Slope", "stud_w": 4, "stud_h": 2, "shape_family": "slope", "extra": {}}
+]
