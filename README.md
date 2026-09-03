@@ -36,6 +36,7 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M5 完成 —— 导出：Excel BOM（颜色/RGB 色块/逐层用量/总用量 + 缺件/替代明细），
-> PDF 分层说明书（封面预览 + 物料清单 + 每层 6 视角矢量图 + 中文嵌入字体）；
-> api.export_plan / CLI --excel/--pdf / 预览页导出按钮。132 项测试全绿。
+> 状态：M6 完成 —— 拍照识别入库：detect 模块（Lab+k-means 色块分割 → 连通域候选，
+> 背景/噪点/超色域过滤；YOLO/Ultralytics 适配器与降级选择就绪），桌面"拍照识别入库"
+> 对话框（识别候选 → 颜色复核/形态下拉确认 → 数量 → 批量入库 source=photo）。
+> 139 项测试全绿。

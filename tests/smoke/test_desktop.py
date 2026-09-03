@@ -197,6 +197,43 @@ def test_inventory_dialog_list(qapp, tmp_path):
     assert store.snapshot() == {("3024", "Red"): 25, ("3020", "Blue"): 4}
 
 
+def test_photo_entry_dialog_import(qapp, tmp_path):
+    from legoart.detect import PartCandidate
+    from legoart_desktop.pages.page_inventory import InventoryDialog
+    from legoart_desktop.pages.photo_entry import PhotoEntryDialog
+    from legoart_desktop.store import InventoryStore
+
+    class _FakeDetector:
+        kind = "fake"
+
+        def predict(self, rgb):
+            return [
+                PartCandidate(10, 10, 40, 40, 1600, (201, 26, 9), "Red", 0.1),
+                PartCandidate(60, 10, 40, 40, 1600, (0, 85, 191), "Blue", 0.1),
+            ]
+
+    store = InventoryStore(tmp_path / "photo.db")
+    src = _gradient_png(tmp_path / "photo.png", 60, 40)
+
+    dlg = PhotoEntryDialog(store, detector=_FakeDetector())
+    dlg.load_and_detect(src)
+    dlg._detect()
+    assert dlg.table.rowCount() == 2
+    assert "2" in dlg.lbl_status.text()
+
+    # 行 0：3024 + Red ×2；行 1：3023 + Blue ×1
+    for row_idx, (design, qty) in enumerate((("3024", 2), ("3023", 1))):
+        color_combo, part_combo, spin = dlg._row_widgets[row_idx]
+        part_combo.setCurrentIndex(part_combo.findData(design))
+        spin.setValue(qty)
+    dlg._import_all()
+    assert store.snapshot() == {("3024", "Red"): 2, ("3023", "Blue"): 1}
+
+    # 库存对话框刷新可看到新行
+    inv = InventoryDialog(store)
+    assert inv.table.rowCount() == 2
+
+
 def test_inventory_mode_solve_and_deduct(qapp, tmp_path, monkeypatch):
     from collections import Counter
 

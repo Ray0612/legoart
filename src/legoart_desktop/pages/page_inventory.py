@@ -71,9 +71,9 @@ class InventoryDialog(QDialog):
         self.btn_excel_import.clicked.connect(self._on_import)
         self.btn_excel_export = QPushButton("导出 Excel…")
         self.btn_excel_export.clicked.connect(self._on_export)
-        self.btn_photo = QPushButton("拍照识别（M6）")
-        self.btn_photo.setEnabled(False)
-        self.btn_photo.setToolTip("拍照识别将在 M6 里程碑接入")
+        self.btn_photo = QPushButton("拍照识别入库…")
+        self.btn_photo.clicked.connect(self._on_photo)
+        self.btn_photo.setToolTip("颜色自动识别；零件形态下拉确认后批量入库")
         self.btn_refresh = QPushButton("刷新")
         self.btn_refresh.clicked.connect(self.refresh)
         ops.addWidget(self.btn_delete)
@@ -137,3 +137,10 @@ class InventoryDialog(QDialog):
             QMessageBox.information(self, "完成", f"已导出到 {path}")
         except Exception as e:
             QMessageBox.warning(self, "导出失败", str(e))
+
+    def _on_photo(self) -> None:
+        from .photo_entry import PhotoEntryDialog
+
+        dlg = PhotoEntryDialog(self.store, self)
+        dlg.exec()
+        self.refresh()
