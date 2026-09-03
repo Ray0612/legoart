@@ -9,7 +9,7 @@ from .image_spec import ImageSpec, ShortageStrategy, StyleKind
 from .layers import Layer, LayerStack
 from .placements import PartPlacement
 from .plan import MosaicPlan, SolverResult
-from .regions import Region, SaliencyMap
+from .regions import Region, RegionSet, SaliencyMap
 
 __all__ = [
     "BomItem",
@@ -24,5 +24,6 @@ __all__ = [
     "MosaicPlan",
     "SolverResult",
     "Region",
+    "RegionSet",
     "SaliencyMap",
 ]

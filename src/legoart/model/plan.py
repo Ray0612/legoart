@@ -42,22 +42,25 @@ class MosaicPlan:
     generated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     def to_dict(self) -> dict:
+        def _i(v) -> int:
+            return int(v)
+
         return {
             "spec": self.spec.to_dict(),
-            "grid": {"w": self.grid.width, "h": self.grid.height, "colors": self.grid.ids_2d()},
+            "grid": {"w": _i(self.grid.width), "h": _i(self.grid.height), "colors": self.grid.ids_2d()},
             "regions": [
                 {
                     "mask": r.mask.tolist(),
-                    "raise_layers": r.raise_layers,
+                    "raise_layers": _i(r.raise_layers),
                     "source": r.source,
-                    "score": r.score,
+                    "score": float(r.score),
                     "label": r.label,
                 }
                 for r in self.regions.regions
             ],
             "stack": (
                 [
-                    {"level": ly.level, "colors": ly.grid.ids_2d()}
+                    {"level": _i(ly.level), "colors": ly.grid.ids_2d()}
                     for ly in sorted(self.stack.layers, key=lambda x: x.level)
                 ]
                 if self.stack
@@ -67,20 +70,25 @@ class MosaicPlan:
                 {
                     "design_id": p.design_id,
                     "color_id": p.color_id,
-                    "layer": p.layer,
-                    "x": p.x,
-                    "y": p.y,
-                    "w": p.w,
-                    "h": p.h,
+                    "layer": _i(p.layer),
+                    "x": _i(p.x),
+                    "y": _i(p.y),
+                    "w": _i(p.w),
+                    "h": _i(p.h),
                 }
                 for p in self.placements
             ],
             "bom": [
-                {"design_id": i.design_id, "color_id": i.color_id, "qty": i.qty, "layer": i.layer}
+                {
+                    "design_id": i.design_id,
+                    "color_id": i.color_id,
+                    "qty": _i(i.qty),
+                    "layer": _i(i.layer) if i.layer is not None else None,
+                }
                 for i in self.bom.items
             ],
-            "warnings": self.warnings,
-            "elapsed_ms": self.elapsed_ms,
+            "warnings": list(self.warnings),
+            "elapsed_ms": _i(self.elapsed_ms),
             "generated_at": self.generated_at,
         }
 

@@ -36,5 +36,6 @@ $env:PYTHONPATH = (Join-Path $PWD '.bootstrap') + ';' + (Join-Path $PWD 'src')
 > 先 `python -m venv --without-pip .venv`，再手工执行
 > `$env:PYTHONPATH=...; .\.venv\Scripts\python.exe -m ensurepip --upgrade --default-pip`。
 
-> 状态：M1 色块化链路完成 —— 采样→CIEDE2000 量化→单层网格/BOM JSON + CLI
-> （`python -m legoart.cli generate --image x.png --width 48`），67 项测试全绿。
+> 状态：M2 完成 —— 同色大板合并（贪心 run 扩展，96×64 合并 39ms）、显著性凸起
+> （内置对比度显著性 + U²-Net TorchScript 适配器，可注入 regions）、凸起分层与按层 BOM。
+> CLI 全链路 96×64+凸起 ~0.2s（远低于 60s 预算），91 项测试全绿。

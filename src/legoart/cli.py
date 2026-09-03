@@ -1,4 +1,4 @@
-"""命令行入口（M1 冒烟）：python -m legoart.cli generate ...
+"""命令行入口（M1/M2 冒烟）：python -m legoart.cli generate ...
 
 示例：
   python -m legoart.cli generate --image photo.jpg --width 48 --color-set recommended \
@@ -30,8 +30,6 @@ def _cm_to_studs(cm: float) -> int:
 
 def _render_preview(grid, palette, out: Path, cell_px: int = 20) -> None:
     """用色库 RGB 渲染网格为 PNG（cell_px=每格像素）。"""
-    import numpy as np
-
     h, w = grid.height, grid.width
     canvas = Image.new("RGB", (w * cell_px, h * cell_px), (20, 20, 20))
     px = canvas.load()
@@ -61,19 +59,24 @@ def _cmd_generate(args) -> int:
         use_inventory=False,
         color_set=args.color_set,
         input_unit=args.unit,
+        saliency_enabled=not args.no_saliency,
     )
 
     plan = api.generate_plan(args.image, spec)
+    pal = api.build_palette()
+
+    stack = plan.stack
+    pieces = len(plan.placements)
+    covered = sum(p.area for p in plan.placements)
     print(
-        f"grid {plan.grid.width}x{plan.grid.height} studs, "
-        f"{plan.grid.width * plan.grid.height} cells, "
-        f"{len(set(plan.grid.colors.ravel()))} colors, "
-        f"elapsed {plan.elapsed_ms} ms"
+        f"grid {plan.grid.width}x{plan.grid.height} studs, {plan.grid.width * plan.grid.height} cells, "
+        f"{len(set(plan.grid.colors.ravel().tolist()))} colors, "
+        f"layers {stack.height_total if stack else 1}, regions {len(plan.regions.regions)}, "
+        f"plates(merged) {pieces} (covered {covered}), elapsed {plan.elapsed_ms} ms"
     )
 
     counts: Counter[str] = Counter(plan.grid.colors.ravel().tolist())
-    pal = api.build_palette()
-    for cid, n in counts.most_common(12):
+    for cid, n in counts.most_common(8):
         rec = pal.get(cid)
         name = rec.name_bl if rec else cid
         print(f"  {name:20s} {n:5d} cells")
@@ -94,7 +97,7 @@ def _cmd_generate(args) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="legoart", description="LEGO Art Converter (M1)")
+    p = argparse.ArgumentParser(prog="legoart", description="LEGO Art Converter (M2)")
     p.add_argument("--version", action="version", version=__version__)
     sub = p.add_subparsers(dest="cmd", required=True)
 
@@ -107,6 +110,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--color-set", choices=("recommended", "all"), default="recommended",
         help="候选色集（recommended=常用色）",
     )
+    g.add_argument("--no-saliency", action="store_true", help="关闭显著性凸起（跳过重点识别）")
     g.add_argument("--out", default=None, help="方案 JSON 输出路径（默认 ./plan.json）")
     g.add_argument("--preview", default=None, help="可选：输出网格预览 PNG 路径")
     g.set_defaults(func=_cmd_generate)
