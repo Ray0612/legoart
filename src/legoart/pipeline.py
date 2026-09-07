@@ -149,7 +149,7 @@ def generate_plan(
 
         cells = sample_grid(im, w, h)
         if getattr(spec, "auto_tone", True):
-            cells = auto_tone(cells, pal)
+            cells = auto_tone(cells, pal, strength=getattr(spec, "tone_strength", 2))
         grid, deltas = quantize_grid(cells, pal, color_set=color_set)
     _budget()
 

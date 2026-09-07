@@ -69,6 +69,15 @@ class SizePage(QWidget):
         self.combo_color.addItem("全部颜色", "all")
         form.addRow("候选色集", self.combo_color)
 
+        self.combo_tone = QComboBox()
+        self.combo_tone.addItem("自动调色：关", 0)
+        self.combo_tone.addItem("自动调色：温和", 1)
+        self.combo_tone.addItem("自动调色：标准", 2)
+        self.combo_tone.addItem("自动调色：强烈", 3)
+        self.combo_tone.setCurrentIndex(2)  # 默认标准，用户随时切换/关闭
+        self.combo_tone.setToolTip("整体太暗就提亮、太亮就压暗，让颜色更易命中官方色；关=完全按原图")
+        form.addRow("色调适配", self.combo_tone)
+
         self.chk_saliency = None
         from PyQt6.QtWidgets import QCheckBox
 
@@ -146,6 +155,8 @@ class SizePage(QWidget):
             color_set=self.combo_color.currentData(),
             saliency_enabled=self.chk_saliency.isChecked(),
             saliency_max_raise=self.spin_raise.value(),
+            auto_tone=self.combo_tone.currentData() > 0,
+            tone_strength=int(self.combo_tone.currentData()),
             input_unit=unit,
             catalog_version=api.load_catalog().version,
         )
