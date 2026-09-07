@@ -153,6 +153,10 @@ def generate_plan(
     elif spec.saliency_enabled:
         try:
             region_list = _detect_regions(im, grid.height, grid.width, warnings)
+            # 用户设置的层高上限只约束 AI 切出的区域（显式注入的区域是用户意图）
+            cap = max(1, int(getattr(spec, "saliency_max_raise", 3)))
+            for r in region_list:
+                r.raise_layers = min(max(r.raise_layers, 1), cap)
         except Exception as e:  # 显著性失败不阻断主流程
             warnings.append(f"saliency detection skipped: {e}")
         _budget()

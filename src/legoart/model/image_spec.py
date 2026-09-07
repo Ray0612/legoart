@@ -31,6 +31,7 @@ class ImageSpec:
     use_inventory: bool = False           # 需求轴：False=理想购物车 / True=库存约束
     shortage_strategy: ShortageStrategy = ShortageStrategy.MISSING_LIST
     saliency_enabled: bool = True         # 是否做 AI 重点识别（D6）
+    saliency_max_raise: int = 3           # AI 区域凸起层高上限（用户可调 1..6+）
     color_set: str = "recommended"        # 候选色集: recommended|all（见 palette）
     input_unit: str = "studs"             # 用户原始输入单位 studs|cm（D10）
     catalog_version: str = ""             # 生成时目录版本（快照一致性 §8.2）

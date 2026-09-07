@@ -61,3 +61,14 @@ def test_bad_hex_raises():
 
     with pytest.raises(ValueError):
         ColorSpec("X", "X", "", "#GGGGGG").rgb
+
+
+def test_recommended_is_proper_subset_of_all():
+    """回归：早期 curated 把所有色标为 recommended → '全部颜色'=='仅常用色'。"""
+    from legoart import api
+
+    pal = api.build_palette(api.load_catalog())
+    assert 0 < len(pal.recommended_ids) < len(pal)
+    assert "Orange" in pal.recommended_ids
+    assert "Dark Turquoise" not in pal.recommended_ids
+    assert "Dark Turquoise" in pal.ids

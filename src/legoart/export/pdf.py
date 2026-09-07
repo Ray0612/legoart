@@ -64,6 +64,16 @@ class GridFlowable(Flowable):
                 rgb = (255, 255, 255) if not cid else (self.palette.rgb_of(cid) or _MISS)
                 self.canv.setFillColorRGB(rgb[0] / 255.0, rgb[1] / 255.0, rgb[2] / 255.0)
                 self.canv.rect(x0, y0, self.cell, self.cell, stroke=0, fill=1)
+        # 每格分割线：让用户能逐格对齐拼装；格过小(<2pt)时省略以免文件过大
+        if self.cell >= 2.0:
+            self.canv.setStrokeColorRGB(0.45, 0.45, 0.5)
+            self.canv.setLineWidth(0.2)
+            for y in range(len(self.grid) + 1):
+                yy = y * self.cell
+                self.canv.line(0, yy, self.width, yy)
+            for x in range(len(self.grid[0]) + 1):
+                xx = x * self.cell
+                self.canv.line(xx, 0, xx, self.height)
         self.canv.setStrokeColorRGB(0.6, 0.6, 0.6)
         self.canv.setLineWidth(0.25)
         self.canv.rect(0, 0, self.width, self.height, stroke=1, fill=0)

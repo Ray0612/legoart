@@ -16,6 +16,7 @@ from PyQt6.QtWidgets import (
     QProgressBar,
     QPushButton,
     QRadioButton,
+    QSpinBox,
     QVBoxLayout,
     QWidget,
 )
@@ -71,9 +72,16 @@ class SizePage(QWidget):
         self.chk_saliency = None
         from PyQt6.QtWidgets import QCheckBox
 
-        self.chk_saliency = QCheckBox("AI 重点识别 → 凸起（可后续微调）")
+        self.chk_saliency = QCheckBox("AI 重点识别 → 凸起")
         self.chk_saliency.setChecked(True)
+        self.chk_saliency.toggled.connect(self._saliency_toggled)
         form.addRow("凸起", self.chk_saliency)
+
+        self.spin_raise = QSpinBox()
+        self.spin_raise.setRange(1, 6)
+        self.spin_raise.setValue(3)
+        self.spin_raise.setToolTip("AI 切出的重点区域垫高的物理层数上限（1–6）")
+        form.addRow("凸起层高上限", self.spin_raise)
 
         # ---- 库存约束（D7/D13）----
         self.chk_inv = QCheckBox("库存约束模式（使用我的库存）")
@@ -137,6 +145,7 @@ class SizePage(QWidget):
             shortage_strategy=ShortageStrategy(self.combo_strategy.currentData()),
             color_set=self.combo_color.currentData(),
             saliency_enabled=self.chk_saliency.isChecked(),
+            saliency_max_raise=self.spin_raise.value(),
             input_unit=unit,
             catalog_version=api.load_catalog().version,
         )
@@ -179,6 +188,9 @@ class SizePage(QWidget):
 
     def _on_progress(self, _stage: str, frac: float) -> None:
         self.progress.setValue(int(frac * 1000))
+
+    def _saliency_toggled(self, on: bool) -> None:
+        self.spin_raise.setEnabled(on)
 
     def _on_ok(self, plan: object) -> None:
         self.progress.setVisible(False)

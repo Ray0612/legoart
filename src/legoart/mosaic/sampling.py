@@ -31,10 +31,12 @@ def ImageOps_exif_transpose(im: Image.Image) -> Image.Image:
         return im  # 旧版 Pillow 无此方法时原样返回
 
 
-def sample_grid(image: Image.Image, width: int, height: int, *, median_ksize: int = 3) -> np.ndarray:
+def sample_grid(image: Image.Image, width: int, height: int, *, median_ksize: int = 0) -> np.ndarray:
     """返回 (height, width, 3) float 每格代表色（0..255）。
 
     采样语义：BOX 平均 = 每格取源图对应区域的面积平均色。
+    median_ksize 默认 0（关闭）：3×3 中值会吞掉 1~2 格宽的细结构
+    （如线稿黑边/点状星点），造成细节丢失；如需抑制椒盐噪色可显式传 3/5。
     """
     if width < 1 or height < 1:
         raise DataError(f"网格尺寸非法: {width}x{height}")

@@ -116,6 +116,19 @@ def test_saliency_degrade_warns_without_model(monkeypatch):
     assert len(plan.regions.regions) == 0
 
 
+def test_saliency_max_raise_caps_ai_regions(monkeypatch):
+    monkeypatch.delenv("LEGOART_SALIENCY_MODEL", raising=False)
+    im = Image.new("RGB", (64, 64), (120, 120, 120))
+    for y in range(18, 46):
+        for x in range(18, 46):
+            im.putpixel((x, y), (220, 30, 20))  # 强主体 → 必然切出区域
+    spec = ImageSpec(grid_w=16, grid_h=16, saliency_enabled=True, saliency_max_raise=1)
+    plan = api.generate_plan(im, spec)
+    assert plan.regions.regions, "强主体应切出区域"
+    assert all(r.raise_layers == 1 for r in plan.regions.regions)
+    assert plan.stack.height_total == 2  # 底层 + 1 层凸起
+
+
 def test_color_set_all_uses_more_colors_than_recommended():
     from legoart.catalog.models import ColorSpec
     from legoart.color import Palette

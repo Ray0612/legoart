@@ -23,5 +23,9 @@
   {"color_id": "Medium Nougat", "name_bl": "Medium Nougat", "name_tlg": "", "rgb": "#AA7D55", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Light Nougat", "name_bl": "Light Nougat", "name_tlg": "", "rgb": "#F6D7B3", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Reddish Brown", "name_bl": "Reddish Brown", "name_tlg": "", "rgb": "#582A12", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Brown", "name_bl": "Dark Brown", "name_tlg": "", "rgb": "#352100", "is_trans": false, "material": "solid", "recommended": true, "refs": {}}
+  {"color_id": "Dark Brown", "name_bl": "Dark Brown", "name_tlg": "", "rgb": "#352100", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Orange", "name_bl": "Orange", "name_tlg": "Bright Orange", "rgb": "#FF800D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Medium Blue", "name_bl": "Medium Blue", "name_tlg": "", "rgb": "#0057A6", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
+  {"color_id": "Dark Turquoise", "name_bl": "Dark Turquoise", "name_tlg": "", "rgb": "#008F9B", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
+  {"color_id": "Dark Tan", "name_bl": "Dark Tan", "name_tlg": "", "rgb": "#958A73", "is_trans": false, "material": "solid", "recommended": false, "refs": {}}
 ]
