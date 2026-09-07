@@ -36,3 +36,4 @@ logs/
 # --- Packaging ---
 *.spec
 *.lnk
+ui.log
