@@ -34,6 +34,7 @@ class ImageSpec:
     saliency_max_raise: int = 3           # AI 区域凸起层高上限（用户可调 1..6+）
     color_set: str = "recommended"        # 候选色集: recommended|all（见 palette）
     sampling: str = "mean"                # mode=子格多数投票(细线稿) | mean=面积平均(连续色调，默认)
+    auto_tone: bool = True                # 自动调亮度到调色板最易命中区间（暗提亮/亮压暗）
     input_unit: str = "studs"             # 用户原始输入单位 studs|cm（D10）
     catalog_version: str = ""             # 生成时目录版本（快照一致性 §8.2）
     params_extra: dict = field(default_factory=dict)  # 预留扩展

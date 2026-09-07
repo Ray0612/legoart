@@ -9,6 +9,7 @@
     "saliency_max_raise": 3,
     "color_set": "recommended",
     "sampling": "mean",
+    "auto_tone": true,
     "input_unit": "studs",
     "catalog_version": "",
     "params_extra": {}
@@ -248,5 +249,5 @@
     "CIEDE2000 residual high (mean 4.99, p95 4.99); consider a larger grid or another palette set"
   ],
   "elapsed_ms": 1,
-  "generated_at": "2026-09-07T05:28:49.453102+00:00"
+  "generated_at": "2026-09-07T05:34:11.347794+00:00"
 }

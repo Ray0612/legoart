@@ -140,12 +140,16 @@ def generate_plan(
     color_set = spec.color_set if spec.color_set in ("recommended", "all") else "recommended"
 
     _report(progress, "quantize", 0.4)
-    if getattr(spec, "sampling", "mode") == "mode":
+    if getattr(spec, "sampling", "mean") == "mode":
         from .mosaic import quantize_mode
 
         grid, deltas = quantize_mode(im, w, h, pal, color_set=color_set)
     else:
+        from .mosaic.tonemap import auto_tone
+
         cells = sample_grid(im, w, h)
+        if getattr(spec, "auto_tone", True):
+            cells = auto_tone(cells, pal)
         grid, deltas = quantize_grid(cells, pal, color_set=color_set)
     _budget()
 
