@@ -37,3 +37,4 @@ logs/
 *.spec
 *.lnk
 ui.log
+tmp/
