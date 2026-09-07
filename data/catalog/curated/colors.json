@@ -1,7 +1,10 @@
 [
   {"color_id": "White", "name_bl": "White", "name_tlg": "White", "rgb": "#FFFFFF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Very Light Bluish Gray", "name_bl": "Very Light Bluish Gray", "name_tlg": "", "rgb": "#E6E3DF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Light Bluish Gray", "name_bl": "Light Bluish Gray", "name_tlg": "Medium Stone Grey", "rgb": "#A0A5A9", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Light Gray", "name_bl": "Light Gray", "name_tlg": "", "rgb": "#9BA19D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Dark Bluish Gray", "name_bl": "Dark Bluish Gray", "name_tlg": "Dark Stone Grey", "rgb": "#6C6E68", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Dark Gray", "name_bl": "Dark Gray", "name_tlg": "", "rgb": "#635F61", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Black", "name_bl": "Black", "name_tlg": "Black", "rgb": "#05131D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Red", "name_bl": "Red", "name_tlg": "Bright Red", "rgb": "#C91A09", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Dark Red", "name_bl": "Dark Red", "name_tlg": "Dark Red", "rgb": "#720E0F", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
@@ -27,5 +30,7 @@
   {"color_id": "Orange", "name_bl": "Orange", "name_tlg": "Bright Orange", "rgb": "#FF800D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
   {"color_id": "Medium Blue", "name_bl": "Medium Blue", "name_tlg": "", "rgb": "#0057A6", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
   {"color_id": "Dark Turquoise", "name_bl": "Dark Turquoise", "name_tlg": "", "rgb": "#008F9B", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
-  {"color_id": "Dark Tan", "name_bl": "Dark Tan", "name_tlg": "", "rgb": "#958A73", "is_trans": false, "material": "solid", "recommended": false, "refs": {}}
+  {"color_id": "Dark Tan", "name_bl": "Dark Tan", "name_tlg": "", "rgb": "#958A73", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Olive Green", "name_bl": "Olive Green", "name_tlg": "Olive Green", "rgb": "#9B9A5A", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
+  {"color_id": "Sand Green", "name_bl": "Sand Green", "name_tlg": "", "rgb": "#A0BCAC", "is_trans": false, "material": "solid", "recommended": false, "refs": {}}
 ]

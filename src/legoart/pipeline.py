@@ -130,7 +130,6 @@ def generate_plan(
         h = max(1, round(w / aspect))
 
     _report(progress, "sample", 0.05)
-    cells = sample_grid(im, w, h)
     _budget()
 
     pal = palette
@@ -141,7 +140,13 @@ def generate_plan(
     color_set = spec.color_set if spec.color_set in ("recommended", "all") else "recommended"
 
     _report(progress, "quantize", 0.4)
-    grid, deltas = quantize_grid(cells, pal, color_set=color_set)
+    if getattr(spec, "sampling", "mode") == "mode":
+        from .mosaic import quantize_mode
+
+        grid, deltas = quantize_mode(im, w, h, pal, color_set=color_set)
+    else:
+        cells = sample_grid(im, w, h)
+        grid, deltas = quantize_grid(cells, pal, color_set=color_set)
     _budget()
 
     warnings = _warn_residual(deltas)
