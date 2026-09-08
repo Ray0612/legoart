@@ -69,6 +69,21 @@ class SizePage(QWidget):
         self.combo_color.addItem("全部颜色", "all")
         form.addRow("候选色集", self.combo_color)
 
+        self.combo_style = QComboBox()
+        self.combo_style.addItem("照片还原（逐格最准，全色库）", "photo")
+        self.combo_style.addItem("乐高艺术海报（自动选色子集）", "poster")
+        self.combo_style.currentIndexChanged.connect(self._style_toggled)
+        form.addRow("成品风格", self.combo_style)
+
+        self.combo_postk = QComboBox()
+        self.combo_postk.addItem("海报：精简（≈12 色）", 12)
+        self.combo_postk.addItem("海报：标准（≈24 色）", 24)
+        self.combo_postk.addItem("海报：丰富（≈40 色）", 40)
+        self.combo_postk.setCurrentIndex(1)
+        self.combo_postk.setEnabled(False)
+        self.combo_postk.setToolTip("艺术海报风会自动为这张图挑选这么多官方色再拼")
+        form.addRow("海报色数", self.combo_postk)
+
         self.combo_tone = QComboBox()
         self.combo_tone.addItem("自动调色：关", 0)
         self.combo_tone.addItem("自动调色：温和", 1)
@@ -155,11 +170,16 @@ class SizePage(QWidget):
             color_set=self.combo_color.currentData(),
             saliency_enabled=self.chk_saliency.isChecked(),
             saliency_max_raise=self.spin_raise.value(),
+            style_mode=self.combo_style.currentData(),
+            palette_k=int(self.combo_postk.currentData()) if self.combo_style.currentData() == "poster" else 0,
             auto_tone=self.combo_tone.currentData() > 0,
             tone_strength=int(self.combo_tone.currentData()),
             input_unit=unit,
             catalog_version=api.load_catalog().version,
         )
+
+    def _style_toggled(self) -> None:
+        self.combo_postk.setEnabled(self.combo_style.currentData() == "poster")
 
     def _inv_toggled(self, on: bool) -> None:
         self.combo_strategy.setEnabled(on)

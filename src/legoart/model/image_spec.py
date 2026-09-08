@@ -34,6 +34,8 @@ class ImageSpec:
     saliency_max_raise: int = 3           # AI 区域凸起层高上限（用户可调 1..6+）
     color_set: str = "recommended"        # 候选色集: recommended|all（见 palette）
     sampling: str = "mean"                # mode=子格多数投票(细线稿) | mean=面积平均(连续色调，默认)
+    style_mode: str = "photo"             # photo=照片还原(全色库逐格最准) | poster=乐高艺术海报(每图自动选色子集)
+    palette_k: int = 0                    # poster 用：自动选色数量 0=auto(24) 12/24/40…；photo 忽略
     auto_tone: bool = True                # 是否自动调亮度（GUI 四档：关/温和/标准/强烈）
     tone_strength: int = 2                # 1=温和 2=标准 3=强烈（auto_tone=True 时生效）
     input_unit: str = "studs"             # 用户原始输入单位 studs|cm（D10）

@@ -9,6 +9,8 @@
     "saliency_max_raise": 3,
     "color_set": "recommended",
     "sampling": "mean",
+    "style_mode": "photo",
+    "palette_k": 0,
     "auto_tone": true,
     "tone_strength": 2,
     "input_unit": "studs",
@@ -249,6 +251,6 @@
   "warnings": [
     "CIEDE2000 residual high (mean 4.99, p95 4.99); consider a larger grid or another palette set"
   ],
-  "elapsed_ms": 1,
-  "generated_at": "2026-09-08T04:29:27.770234+00:00"
+  "elapsed_ms": 2,
+  "generated_at": "2026-09-08T04:34:34.459162+00:00"
 }

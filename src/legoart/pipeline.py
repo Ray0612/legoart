@@ -140,7 +140,23 @@ def generate_plan(
     color_set = spec.color_set if spec.color_set in ("recommended", "all") else "recommended"
 
     _report(progress, "quantize", 0.4)
-    if getattr(spec, "sampling", "mean") == "mode":
+    style_mode = getattr(spec, "style_mode", "photo")
+    if style_mode == "poster":
+        # 艺术海报风：一律面积平均采样 → （可选调色）→ 自动选官方色子集 → 子集内匹配
+        from .mosaic.posterize import choose_palette
+        from .mosaic.tonemap import auto_tone
+
+        cells = sample_grid(im, w, h)
+        if getattr(spec, "auto_tone", True):
+            cells = auto_tone(cells, pal, strength=getattr(spec, "tone_strength", 2))
+        pool = pal.recommended_ids if color_set != "all" else pal.ids
+        k = int(getattr(spec, "palette_k", 0) or 24)
+        chosen, subset = choose_palette(cells, pal, k=min(k, len(pool)), pool_ids=list(pool))
+        grid, deltas = quantize_grid(cells, subset, color_set="all")
+        if spec.params_extra is None:
+            spec.params_extra = {}
+        spec.params_extra["poster_palette"] = chosen
+    elif getattr(spec, "sampling", "mean") == "mode":
         from .mosaic import quantize_mode
 
         grid, deltas = quantize_mode(im, w, h, pal, color_set=color_set)
