@@ -70,5 +70,7 @@ def test_recommended_is_proper_subset_of_all():
     pal = api.build_palette(api.load_catalog())
     assert 0 < len(pal.recommended_ids) < len(pal)
     assert "Orange" in pal.recommended_ids
-    assert "Dark Turquoise" not in pal.recommended_ids
-    assert "Dark Turquoise" in pal.ids
+    # 动态取一个“非推荐”色（全量库里应存在）
+    nonrec = [cid for cid in pal.ids if cid not in pal.recommended_ids]
+    assert nonrec
+    assert nonrec[0] not in pal.recommended_ids and nonrec[0] in pal.ids

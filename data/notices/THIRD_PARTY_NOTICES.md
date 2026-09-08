@@ -5,8 +5,9 @@
 
 | 资产 | 用途 | 许可证 | 状态 |
 | :-- | :-- | :-- | :-- |
+| zed0/lego-colour-matcher（Ben Falconer）`lego-colours.json` | 精选色库权威快照（Rebrickable 颜色响应镜像：色名/RGB/透明度/体系映射） | MIT（见 data/catalog/vendor/LICENSE_zed0.txt） | **随包引入**（data/catalog/vendor/rebrickable_colors_2019.json），由 scripts/build_curated_catalog.py 生成精选色库 |
 | legocolors (CRAN, Matthew Leonawicz) | 颜色命名/hex 交叉校准参考 | 待核对（CRAN 页标注） | 仅作口径参考，未随包分发 |
-| Rebrickable Catalog CSV | 全量零件/色/要素目录（用户侧导入） | 以 rebrickable.com/terms 为准（免商场景契合） | 用户自持授权，不随包分发 |
+| Rebrickable Catalog CSV | 全量零件/要素目录（用户侧导入） | 以 rebrickable.com/terms 为准（免商场景契合） | 用户自持授权，不随包分发 |
 | LDraw Parts Library | 6 视图几何/渲染（未来） | CC BY 2.0 | 未引入 |
 | U²-Net (saliency) 权重 | AI 重点识别 | 以模型仓库许可证为准 | 未引入（M2 下载） |
 | YOLO 权重（Lego-Identification 等） | 拍照识别 | 以来源仓库为准 | 未引入（M6） |

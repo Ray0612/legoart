@@ -1,36 +1,974 @@
 [
-  {"color_id": "White", "name_bl": "White", "name_tlg": "White", "rgb": "#FFFFFF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Very Light Bluish Gray", "name_bl": "Very Light Bluish Gray", "name_tlg": "", "rgb": "#E6E3DF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Light Bluish Gray", "name_bl": "Light Bluish Gray", "name_tlg": "Medium Stone Grey", "rgb": "#A0A5A9", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Light Gray", "name_bl": "Light Gray", "name_tlg": "", "rgb": "#9BA19D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Bluish Gray", "name_bl": "Dark Bluish Gray", "name_tlg": "Dark Stone Grey", "rgb": "#6C6E68", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Gray", "name_bl": "Dark Gray", "name_tlg": "", "rgb": "#635F61", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Black", "name_bl": "Black", "name_tlg": "Black", "rgb": "#05131D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Red", "name_bl": "Red", "name_tlg": "Bright Red", "rgb": "#C91A09", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Red", "name_bl": "Dark Red", "name_tlg": "Dark Red", "rgb": "#720E0F", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Orange", "name_bl": "Dark Orange", "name_tlg": "Dark Orange", "rgb": "#A95500", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Yellow", "name_bl": "Yellow", "name_tlg": "Bright Yellow", "rgb": "#F2CD37", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Lime", "name_bl": "Lime", "name_tlg": "", "rgb": "#BBE90B", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Green", "name_bl": "Green", "name_tlg": "Bright Green", "rgb": "#237841", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Green", "name_bl": "Dark Green", "name_tlg": "Dark Green", "rgb": "#00852B", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Blue", "name_bl": "Blue", "name_tlg": "Bright Blue", "rgb": "#0055BF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Blue", "name_bl": "Dark Blue", "name_tlg": "Dark Blue", "rgb": "#0D69AB", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Azure", "name_bl": "Dark Azure", "name_tlg": "", "rgb": "#078BC9", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Medium Azure", "name_bl": "Medium Azure", "name_tlg": "", "rgb": "#36AEBF", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Purple", "name_bl": "Purple", "name_tlg": "", "rgb": "#81007B", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Purple", "name_bl": "Dark Purple", "name_tlg": "", "rgb": "#3F3691", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Magenta", "name_bl": "Magenta", "name_tlg": "", "rgb": "#923978", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Pink", "name_bl": "Pink", "name_tlg": "", "rgb": "#F785B1", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Tan", "name_bl": "Tan", "name_tlg": "", "rgb": "#DEC69C", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Nougat", "name_bl": "Nougat", "name_tlg": "", "rgb": "#D09168", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Medium Nougat", "name_bl": "Medium Nougat", "name_tlg": "", "rgb": "#AA7D55", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Light Nougat", "name_bl": "Light Nougat", "name_tlg": "", "rgb": "#F6D7B3", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Reddish Brown", "name_bl": "Reddish Brown", "name_tlg": "", "rgb": "#582A12", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Dark Brown", "name_bl": "Dark Brown", "name_tlg": "", "rgb": "#352100", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Orange", "name_bl": "Orange", "name_tlg": "Bright Orange", "rgb": "#FF800D", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Medium Blue", "name_bl": "Medium Blue", "name_tlg": "", "rgb": "#0057A6", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
-  {"color_id": "Dark Turquoise", "name_bl": "Dark Turquoise", "name_tlg": "", "rgb": "#008F9B", "is_trans": false, "material": "solid", "recommended": false, "refs": {}},
-  {"color_id": "Dark Tan", "name_bl": "Dark Tan", "name_tlg": "", "rgb": "#958A73", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Olive Green", "name_bl": "Olive Green", "name_tlg": "Olive Green", "rgb": "#9B9A5A", "is_trans": false, "material": "solid", "recommended": true, "refs": {}},
-  {"color_id": "Sand Green", "name_bl": "Sand Green", "name_tlg": "", "rgb": "#A0BCAC", "is_trans": false, "material": "solid", "recommended": false, "refs": {}}
+  {
+    "color_id": "Aqua",
+    "name_bl": "Aqua",
+    "name_tlg": "Light bluish green",
+    "rgb": "#B3D7D1",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 118
+    }
+  },
+  {
+    "color_id": "Black",
+    "name_bl": "Black",
+    "name_tlg": "Black",
+    "rgb": "#05131D",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 0
+    }
+  },
+  {
+    "color_id": "Blue",
+    "name_bl": "Blue",
+    "name_tlg": "Bright Blue",
+    "rgb": "#0055BF",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 1
+    }
+  },
+  {
+    "color_id": "Blue-Violet",
+    "name_bl": "Blue-Violet",
+    "name_tlg": "Medium Bluish Violet",
+    "rgb": "#6874CA",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 112
+    }
+  },
+  {
+    "color_id": "Bright Green",
+    "name_bl": "Bright Green",
+    "name_tlg": "Bright Green",
+    "rgb": "#4B9F4A",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 10
+    }
+  },
+  {
+    "color_id": "Bright Light Blue",
+    "name_bl": "Bright Light Blue",
+    "name_tlg": "Light Royal blue",
+    "rgb": "#9FC3E9",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 212
+    }
+  },
+  {
+    "color_id": "Bright Light Orange",
+    "name_bl": "Bright Light Orange",
+    "name_tlg": "Flame yellowish orange",
+    "rgb": "#F8BB3D",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 191
+    }
+  },
+  {
+    "color_id": "Bright Light Yellow",
+    "name_bl": "Bright Light Yellow",
+    "name_tlg": "Cool Yellow",
+    "rgb": "#FFF03A",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 226
+    }
+  },
+  {
+    "color_id": "Brown",
+    "name_bl": "Brown",
+    "name_tlg": "Sand Yellow Metallic",
+    "rgb": "#583927",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 6
+    }
+  },
+  {
+    "color_id": "Copper",
+    "name_bl": "Copper",
+    "name_tlg": "Copper Metallic",
+    "rgb": "#AE7A59",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 134
+    }
+  },
+  {
+    "color_id": "Coral",
+    "name_bl": "Coral",
+    "name_tlg": "CORAL",
+    "rgb": "#FF698F",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 1050
+    }
+  },
+  {
+    "color_id": "Dark Azure",
+    "name_bl": "Dark Azure",
+    "name_tlg": "Dark Azur",
+    "rgb": "#078BC9",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 321
+    }
+  },
+  {
+    "color_id": "Dark Blue",
+    "name_bl": "Dark Blue",
+    "name_tlg": "Earth blue",
+    "rgb": "#0A3463",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 272
+    }
+  },
+  {
+    "color_id": "Dark Blue-Violet",
+    "name_bl": "Dark Blue-Violet",
+    "name_tlg": "Dark Royal blue",
+    "rgb": "#2032B0",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 23
+    }
+  },
+  {
+    "color_id": "Dark Bluish Gray",
+    "name_bl": "Dark Bluish Gray",
+    "name_tlg": "Dark stone grey",
+    "rgb": "#6C6E68",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 72
+    }
+  },
+  {
+    "color_id": "Dark Brown",
+    "name_bl": "Dark Brown",
+    "name_tlg": "Dark Brown",
+    "rgb": "#352100",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 308
+    }
+  },
+  {
+    "color_id": "Dark Flesh",
+    "name_bl": "Dark Flesh",
+    "name_tlg": "BROWN",
+    "rgb": "#7C503A",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 86
+    }
+  },
+  {
+    "color_id": "Dark Gray",
+    "name_bl": "Dark Gray",
+    "name_tlg": "Dark grey",
+    "rgb": "#6D6E5C",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 8
+    }
+  },
+  {
+    "color_id": "Dark Green",
+    "name_bl": "Dark Green",
+    "name_tlg": "Earth Green",
+    "rgb": "#184632",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 288
+    }
+  },
+  {
+    "color_id": "Dark Orange",
+    "name_bl": "Dark Orange",
+    "name_tlg": "Dark Orange",
+    "rgb": "#A95500",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 484
+    }
+  },
+  {
+    "color_id": "Dark Purple",
+    "name_bl": "Dark Purple",
+    "name_tlg": "Medium Lilac",
+    "rgb": "#3F3691",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 85
+    }
+  },
+  {
+    "color_id": "Dark Red",
+    "name_bl": "Dark Red",
+    "name_tlg": "Dark red",
+    "rgb": "#720E0F",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 320
+    }
+  },
+  {
+    "color_id": "Dark Tan",
+    "name_bl": "Dark Tan",
+    "name_tlg": "Sand yellow",
+    "rgb": "#958A73",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 28
+    }
+  },
+  {
+    "color_id": "Dark Turquoise",
+    "name_bl": "Dark Turquoise",
+    "name_tlg": "Bright bluish green",
+    "rgb": "#008F9B",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 3
+    }
+  },
+  {
+    "color_id": "Earth Orange",
+    "name_bl": "Earth Orange",
+    "name_tlg": "Dark Nougat",
+    "rgb": "#FA9C1C",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 366
+    }
+  },
+  {
+    "color_id": "Fabuland Brown",
+    "name_bl": "Fabuland Brown",
+    "name_tlg": "Light Orange Brown",
+    "rgb": "#B67B50",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 450
+    }
+  },
+  {
+    "color_id": "Fabuland Orange",
+    "name_bl": "Fabuland Orange",
+    "name_tlg": "",
+    "rgb": "#EF9121",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 1012
+    }
+  },
+  {
+    "color_id": "Flesh",
+    "name_bl": "Flesh",
+    "name_tlg": "Nougat",
+    "rgb": "#D09168",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 92
+    }
+  },
+  {
+    "color_id": "Green",
+    "name_bl": "Green",
+    "name_tlg": "Dark green",
+    "rgb": "#237841",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 2
+    }
+  },
+  {
+    "color_id": "Lavender",
+    "name_bl": "Lavender",
+    "name_tlg": "Lavender",
+    "rgb": "#E1D5ED",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 31
+    }
+  },
+  {
+    "color_id": "Light Aqua",
+    "name_bl": "Light Aqua",
+    "name_tlg": "Aqua",
+    "rgb": "#ADC3C0",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 323
+    }
+  },
+  {
+    "color_id": "Light Blue",
+    "name_bl": "Light Blue",
+    "name_tlg": "Light blue",
+    "rgb": "#B4D2E3",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 9
+    }
+  },
+  {
+    "color_id": "Light Bluish Gray",
+    "name_bl": "Light Bluish Gray",
+    "name_tlg": "Medium stone grey",
+    "rgb": "#A0A5A9",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 71
+    }
+  },
+  {
+    "color_id": "Light Flesh",
+    "name_bl": "Light Flesh",
+    "name_tlg": "Light Nougat",
+    "rgb": "#F6D7B3",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 78
+    }
+  },
+  {
+    "color_id": "Light Gray",
+    "name_bl": "Light Gray",
+    "name_tlg": "Grey",
+    "rgb": "#9BA19D",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 7
+    }
+  },
+  {
+    "color_id": "Light Green",
+    "name_bl": "Light Green",
+    "name_tlg": "Light green",
+    "rgb": "#C2DAB8",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 17
+    }
+  },
+  {
+    "color_id": "Light Lime",
+    "name_bl": "Light Lime",
+    "name_tlg": "Lig. yellowish green",
+    "rgb": "#D9E4A7",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 120
+    }
+  },
+  {
+    "color_id": "Light Nougat",
+    "name_bl": "Light Nougat",
+    "name_tlg": "",
+    "rgb": "#F6D7B3",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "curated_fallback": true
+    }
+  },
+  {
+    "color_id": "Light Orange",
+    "name_bl": "Light Orange",
+    "name_tlg": "",
+    "rgb": "#F9BA61",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 125
+    }
+  },
+  {
+    "color_id": "Light Purple",
+    "name_bl": "Light Purple",
+    "name_tlg": "Bright Reddish Lilac",
+    "rgb": "#CD6298",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 69
+    }
+  },
+  {
+    "color_id": "Light Salmon",
+    "name_bl": "Light Salmon",
+    "name_tlg": "Light red",
+    "rgb": "#FEBABD",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 100
+    }
+  },
+  {
+    "color_id": "Light Turquoise",
+    "name_bl": "Light Turquoise",
+    "name_tlg": "Med. bluish green",
+    "rgb": "#55A5AF",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 11
+    }
+  },
+  {
+    "color_id": "Light Violet",
+    "name_bl": "Light Violet",
+    "name_tlg": "Light bluish violet",
+    "rgb": "#C9CAE2",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 20
+    }
+  },
+  {
+    "color_id": "Light Yellow",
+    "name_bl": "Light Yellow",
+    "name_tlg": "Light yellow",
+    "rgb": "#FBE696",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 18
+    }
+  },
+  {
+    "color_id": "Lime",
+    "name_bl": "Lime",
+    "name_tlg": "Br. yellowish green",
+    "rgb": "#BBE90B",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 27
+    }
+  },
+  {
+    "color_id": "Maersk Blue",
+    "name_bl": "Maersk Blue",
+    "name_tlg": "",
+    "rgb": "#3592C3",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 313
+    }
+  },
+  {
+    "color_id": "Magenta",
+    "name_bl": "Magenta",
+    "name_tlg": "Bright reddish violet",
+    "rgb": "#923978",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 26
+    }
+  },
+  {
+    "color_id": "Medium Azure",
+    "name_bl": "Medium Azure",
+    "name_tlg": "Medium Azure",
+    "rgb": "#36AEBF",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 322
+    }
+  },
+  {
+    "color_id": "Medium Blue",
+    "name_bl": "Medium Blue",
+    "name_tlg": "Medium blue",
+    "rgb": "#5A93DB",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 73
+    }
+  },
+  {
+    "color_id": "Medium Dark Flesh",
+    "name_bl": "Medium Dark Flesh",
+    "name_tlg": "Medium Nougat",
+    "rgb": "#CC702A",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 84
+    }
+  },
+  {
+    "color_id": "Medium Green",
+    "name_bl": "Medium Green",
+    "name_tlg": "Medium green",
+    "rgb": "#73DCA1",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 74
+    }
+  },
+  {
+    "color_id": "Medium Lavender",
+    "name_bl": "Medium Lavender",
+    "name_tlg": "Medium Lavender",
+    "rgb": "#AC78BA",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 30
+    }
+  },
+  {
+    "color_id": "Medium Lime",
+    "name_bl": "Medium Lime",
+    "name_tlg": "Med. yellowish green",
+    "rgb": "#C7D23C",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 115
+    }
+  },
+  {
+    "color_id": "Medium Nougat",
+    "name_bl": "Medium Nougat",
+    "name_tlg": "",
+    "rgb": "#AA7D55",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "curated_fallback": true
+    }
+  },
+  {
+    "color_id": "Medium Orange",
+    "name_bl": "Medium Orange",
+    "name_tlg": "Br. yellowish orange",
+    "rgb": "#FFA70B",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 462
+    }
+  },
+  {
+    "color_id": "Medium Violet",
+    "name_bl": "Medium Violet",
+    "name_tlg": "Lilac",
+    "rgb": "#9391E4",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 1001
+    }
+  },
+  {
+    "color_id": "Nougat",
+    "name_bl": "Nougat",
+    "name_tlg": "",
+    "rgb": "#D09168",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "curated_fallback": true
+    }
+  },
+  {
+    "color_id": "Olive Green",
+    "name_bl": "Olive Green",
+    "name_tlg": "Olive Green",
+    "rgb": "#9B9A5A",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 326
+    }
+  },
+  {
+    "color_id": "Orange",
+    "name_bl": "Orange",
+    "name_tlg": "Bright orange",
+    "rgb": "#FE8A18",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 25
+    }
+  },
+  {
+    "color_id": "Pastel Blue",
+    "name_bl": "Pastel Blue",
+    "name_tlg": "Pastel Blue",
+    "rgb": "#5AC4DA",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 1051
+    }
+  },
+  {
+    "color_id": "Pink",
+    "name_bl": "Pink",
+    "name_tlg": "",
+    "rgb": "#F785B1",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "curated_fallback": true
+    }
+  },
+  {
+    "color_id": "Purple",
+    "name_bl": "Purple",
+    "name_tlg": "Bright violet",
+    "rgb": "#81007B",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 22
+    }
+  },
+  {
+    "color_id": "Red",
+    "name_bl": "Red",
+    "name_tlg": "Bright red",
+    "rgb": "#C91A09",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 4
+    }
+  },
+  {
+    "color_id": "Reddish Brown",
+    "name_bl": "Reddish Brown",
+    "name_tlg": "Reddish Brown",
+    "rgb": "#582A12",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 70
+    }
+  },
+  {
+    "color_id": "Reddish Lilac",
+    "name_bl": "Reddish Lilac",
+    "name_tlg": "RED. LILAC",
+    "rgb": "#8E5597",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 1007
+    }
+  },
+  {
+    "color_id": "Royal Blue",
+    "name_bl": "Royal Blue",
+    "name_tlg": "R. BLUE",
+    "rgb": "#4C61DB",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 89
+    }
+  },
+  {
+    "color_id": "Rust",
+    "name_bl": "Rust",
+    "name_tlg": "Rust",
+    "rgb": "#B31004",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 216
+    }
+  },
+  {
+    "color_id": "Salmon",
+    "name_bl": "Salmon",
+    "name_tlg": "Brick Red",
+    "rgb": "#F2705E",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 12
+    }
+  },
+  {
+    "color_id": "Sand Blue",
+    "name_bl": "Sand Blue",
+    "name_tlg": "Sand blue",
+    "rgb": "#6074A1",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 379
+    }
+  },
+  {
+    "color_id": "Sand Green",
+    "name_bl": "Sand Green",
+    "name_tlg": "Sand green",
+    "rgb": "#A0BCAC",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 378
+    }
+  },
+  {
+    "color_id": "Sand Purple",
+    "name_bl": "Sand Purple",
+    "name_tlg": "Sand violet",
+    "rgb": "#845E84",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 373
+    }
+  },
+  {
+    "color_id": "Sand Red",
+    "name_bl": "Sand Red",
+    "name_tlg": "Sand red",
+    "rgb": "#D67572",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 335
+    }
+  },
+  {
+    "color_id": "Sky Blue",
+    "name_bl": "Sky Blue",
+    "name_tlg": "Dove blue",
+    "rgb": "#7DBFDD",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 232
+    }
+  },
+  {
+    "color_id": "Tan",
+    "name_bl": "Tan",
+    "name_tlg": "Brick yellow",
+    "rgb": "#E4CD9E",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 19
+    }
+  },
+  {
+    "color_id": "Very Light Bluish Gray",
+    "name_bl": "Very Light Bluish Gray",
+    "name_tlg": "Light stone grey",
+    "rgb": "#E6E3E0",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 151
+    }
+  },
+  {
+    "color_id": "Very Light Gray",
+    "name_bl": "Very Light Gray",
+    "name_tlg": "Light grey",
+    "rgb": "#E6E3DA",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 503
+    }
+  },
+  {
+    "color_id": "Very Light Orange",
+    "name_bl": "Very Light Orange",
+    "name_tlg": "Light Yellowish Orange",
+    "rgb": "#F3CF9B",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 68
+    }
+  },
+  {
+    "color_id": "Violet",
+    "name_bl": "Violet",
+    "name_tlg": "Bright Bluish Violet",
+    "rgb": "#4354A3",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": false,
+    "refs": {
+      "rebrickable_id": 110
+    }
+  },
+  {
+    "color_id": "White",
+    "name_bl": "White",
+    "name_tlg": "White",
+    "rgb": "#FFFFFF",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 15
+    }
+  },
+  {
+    "color_id": "Yellow",
+    "name_bl": "Yellow",
+    "name_tlg": "Bright yellow",
+    "rgb": "#F2CD37",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 14
+    }
+  },
+  {
+    "color_id": "Yellowish Green",
+    "name_bl": "Yellowish Green",
+    "name_tlg": "Spring Yellow Green",
+    "rgb": "#DFEEA5",
+    "is_trans": false,
+    "material": "solid",
+    "recommended": true,
+    "refs": {
+      "rebrickable_id": 158
+    }
+  }
 ]
