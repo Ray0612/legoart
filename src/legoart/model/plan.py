@@ -11,9 +11,9 @@ from datetime import datetime, timezone
 from .bom import BomItem, BomModel
 from .grid import GridModel
 from .image_spec import ImageSpec
-from .layers import Layer, LayerStack
+from .layers import LayerStack
 from .placements import PartPlacement
-from .regions import Region, RegionSet
+from .regions import RegionSet
 
 
 @dataclass(slots=True)

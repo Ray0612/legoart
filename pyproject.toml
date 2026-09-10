@@ -53,3 +53,13 @@ addopts = "-q"
 [tool.ruff]
 line-length = 120
 target-version = "py311"
+
+# 固定规则集（不随 ruff 版本默认漂移），只启用高置信度的问题规则。
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.ruff.lint.per-file-ignores]
+# 包的 __init__ 常做再导出（re-export），允许 F401
+"__init__.py" = ["F401"]
+"tests/**" = ["F401", "F841"]
+"scripts/**" = ["F401", "F841", "F541"]

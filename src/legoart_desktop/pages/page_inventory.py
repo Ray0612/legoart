@@ -41,7 +41,6 @@ class InventoryDialog(QDialog):
             self.combo_part.addItem(f"{p.design_id} · {p.name}（{p.stud_w}x{p.stud_h} studs）", p.design_id)
         self.combo_color = QComboBox()
         for c in self._catalog.colors:
-            r = c.rgb
             self.combo_color.addItem(
                 f"{c.name_bl}（{c.rgb_hex}）", c.color_id
             )

@@ -9,7 +9,6 @@ from functools import lru_cache
 from pathlib import Path
 
 from .catalog import Catalog
-from .catalog.loader import default_catalog_dir
 from .color import Palette
 from .model import ImageSpec, MosaicPlan, Region
 

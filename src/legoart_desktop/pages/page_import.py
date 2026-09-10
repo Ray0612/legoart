@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from PIL import Image
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import (
     QFileDialog,
     QHBoxLayout,
@@ -65,10 +65,10 @@ class ImportPage(QWidget):
         rect = self.canvas.selection_rect()
         if rect is None:
             return self._pil.copy()
-        l, t = rect.left(), rect.top()
-        r = min(l + rect.width(), self._pil.width)
+        left, t = rect.left(), rect.top()
+        r = min(left + rect.width(), self._pil.width)
         b = min(t + rect.height(), self._pil.height)
-        return self._pil.crop((l, t, r, b))
+        return self._pil.crop((left, t, r, b))
 
     # ---- 内部 ----
     def _choose_file(self) -> None:

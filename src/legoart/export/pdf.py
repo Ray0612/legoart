@@ -160,7 +160,7 @@ def build_pdf(
         totals[key] = totals.get(key, 0) + item.qty
         if item.layer is not None:
             per_layer.setdefault(key, {})[item.layer] = per_layer.get(key, {}).get(item.layer, 0) + item.qty
-    level_cols = [f"L{l.level}" for l in levels]
+    level_cols = [f"L{lv.level}" for lv in levels]
     head = ["设计号", "零件", "颜色", "RGB"] + level_cols + ["总用量"]
     body_rows = [head]
     for (design_id, color_id) in sorted(totals):
@@ -172,10 +172,9 @@ def build_pdf(
             (col.name_bl if col else color_id),
             _palette_rgb(palette, color_id),
         ]
-        line += [per_layer.get((design_id, color_id), {}).get(l.level, 0) for l in levels]
+        line += [per_layer.get((design_id, color_id), {}).get(lv.level, 0) for lv in levels]
         line.append(totals[(design_id, color_id)])
         body_rows.append(line)
-    n_cols = len(head)
     bom_tbl = Table(body_rows, repeatRows=1)
     bom_tbl.setStyle(
         TableStyle(

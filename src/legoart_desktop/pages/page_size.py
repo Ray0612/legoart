@@ -5,7 +5,7 @@ from __future__ import annotations
 import io
 
 from PIL import Image
-from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtCore import pyqtSignal
 from PyQt6.QtWidgets import (
     QButtonGroup,
     QComboBox,
@@ -147,7 +147,7 @@ class SizePage(QWidget):
     def set_image_pil(self, pil: Image.Image) -> None:
         self._pil = pil.convert("RGB")
         # cm→studs 换算提示
-        self.rb_cm.setText(f"cm（厘米，1 stud≈0.8cm；宽度 38.4cm≈48 studs）")
+        self.rb_cm.setText("cm（厘米，1 stud≈0.8cm；宽度 38.4cm≈48 studs）")
         ratio = pil.width / pil.height
         self._aspect = ratio
         self.lbl_hint.setText(

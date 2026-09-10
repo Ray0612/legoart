@@ -8,7 +8,7 @@ M2 覆盖：采样 → CIEDE2000 量化 → （可选）显著性凸起 → 分�
 from __future__ import annotations
 
 import time
-from collections import Counter, defaultdict
+from collections import Counter
 from collections.abc import Callable
 from pathlib import Path
 
@@ -17,7 +17,7 @@ from PIL import Image
 
 from .color import Palette
 from .errors import DataError, LegoArtTimeoutError, NotSupportedError
-from .model import BomItem, BomModel, GridModel, ImageSpec, LayerStack, MosaicPlan, Region, RegionSet
+from .model import BomModel, ImageSpec, MosaicPlan, Region, RegionSet
 from .model.image_spec import StyleKind
 from .mosaic import merge_grid, quantize_grid, sample_grid, load_rgb_image
 from .mosaic.relief import build_layer_stack

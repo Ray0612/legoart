@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from PIL import Image
-from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QLabel, QMainWindow, QMessageBox, QStackedWidget, QStatusBar
 
 from legoart import api

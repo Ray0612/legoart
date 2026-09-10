@@ -16,12 +16,11 @@ from __future__ import annotations
 from collections import defaultdict
 from dataclasses import dataclass, field
 
-import numpy as np
 
 from ..catalog import Catalog
 from ..color import Palette
 from ..color.ciede2000 import delta_e00
-from ..model import BomItem, ImageSpec, PartPlacement
+from ..model import BomItem, PartPlacement
 from ..model.image_spec import ShortageStrategy
 
 StockMap = dict[tuple[str, str], int]
@@ -116,9 +115,6 @@ def solve_inventory(
     idx = _lab_index(palette)
     result = SolverResult()
     missing_agg: dict[tuple[str, str], int] = defaultdict(int)
-
-    # 同形候选集：先搜集有货的同形件（含不同颜色）
-    exact_keys = [k for k, v in book._s.items() if v > 0]
 
     for orig in placements:
         fw, fh = orig.w, orig.h
