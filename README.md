@@ -7,9 +7,7 @@
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 
-<!-- 建仓后把 OWNER 换成你的用户名，启用 CI 徽章：
-[![CI](https://github.com/OWNER/legoart/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/legoart/actions/workflows/ci.yml)
--->
+[![CI](https://github.com/Ray0612/legoart/actions/workflows/ci.yml/badge.svg)](https://github.com/Ray0612/legoart/actions/workflows/ci.yml)
 
 ## 功能特性
 

@@ -5,7 +5,7 @@
 ## 环境准备
 
 ```bash
-git clone https://github.com/OWNER/legoart.git
+git clone https://github.com/Ray0612/legoart.git
 cd legoart
 python -m venv .venv
 # Windows: .\.venv\Scripts\activate    macOS/Linux: source .venv/bin/activate

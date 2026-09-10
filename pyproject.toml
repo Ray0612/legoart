@@ -31,9 +31,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/OWNER/legoart"
-Repository = "https://github.com/OWNER/legoart"
-Issues = "https://github.com/OWNER/legoart/issues"
+Homepage = "https://github.com/Ray0612/legoart"
+Repository = "https://github.com/Ray0612/legoart"
+Issues = "https://github.com/Ray0612/legoart/issues"
 
 [project.optional-dependencies]
 desktop = ["PyQt6>=6.7"]
