@@ -86,6 +86,9 @@ def test_history_roundtrip_json(tmp_path):
     conn.close()
 
 
-def test_open_bad_dir_raises():
+def test_open_bad_dir_raises(tmp_path):
+    # 跨平台：让父级是一个「文件」，无论 Windows/Linux 都无法作为目录打开数据库
+    blocker = tmp_path / "not-a-dir"
+    blocker.write_text("x", encoding="utf-8")
     with pytest.raises(StorageError):
-        open_db("Z:/no-such-dir-xyz/u.db")
+        open_db(blocker / "u.db")
