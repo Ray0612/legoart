@@ -1,0 +1,57 @@
+name: Bug 报告
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量填写完整信息以便定位问题。
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 问题描述
+      description: 发生了什么？期望的结果是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 具体步骤 / 使用的图片特征 / CLI 参数或 GUI 操作路径
+      placeholder: |
+        1. 运行 python -m legoart.cli generate --image ... --width ...
+        2. ...
+        3. 观察到 ...
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: 涉及模块
+      options:
+        - 核心算法 (color/mosaic/model)
+        - 导出 (export)
+        - 库存 (inventory)
+        - 拍照识别 (detect)
+        - 桌面端 (legoart_desktop)
+        - CLI
+        - 数据/色库 (data/catalog)
+        - 其它
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本 / 提交
+      placeholder: 例如 v0.1.0 或 commit 短哈希
+  - type: textarea
+    id: environment
+    attributes:
+      label: 运行环境
+      placeholder: 操作系统、Python 版本、是否安装 [desktop]/[ml] 等
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志 / 报错信息
+      render: shell

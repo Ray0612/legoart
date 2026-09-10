@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 参与贡献前请先阅读
+    url: https://github.com/OWNER/legoart/blob/main/CONTRIBUTING.md
+    about: 分支与提交规范、PR 流程、测试要求

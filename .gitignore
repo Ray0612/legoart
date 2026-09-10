@@ -7,6 +7,8 @@ build/
 dist/
 .venv/
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
 .coverage
 htmlcov/
 
@@ -37,4 +39,5 @@ logs/
 *.spec
 *.lnk
 ui.log
+*.log
 tmp/
